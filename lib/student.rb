@@ -77,7 +77,7 @@ class Student
     sql = <<-SQL
     SELECT * FROM students WHERE grade = 10
     SQL
-    DB[:conn].execute(sql).map {|student| self.new_from_db(student)}
+    DB[:conn].execute(sql).map {|student| self.new_from_db(student)}.first(val)
   end 
   
 end
